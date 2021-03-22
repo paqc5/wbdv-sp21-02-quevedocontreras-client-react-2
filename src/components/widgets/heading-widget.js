@@ -28,7 +28,8 @@ const HeadingWidget = (
               onChange={(key) =>
                 callbackFunction({
                   ...cachedItem,
-                  text: key.target.value
+                  text: key.target.value,
+                  type: "HEADING"
                 })
               } />
           }
@@ -40,7 +41,8 @@ const HeadingWidget = (
                 value={cachedItem.text}
                 onChange={(key) => callbackFunction({
                   ...cachedItem,
-                  text: key.target.value
+                  text: key.target.value,
+                  type: "PARAGRAPH"
                 })}
               ></textarea>
             </>
