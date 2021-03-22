@@ -27,6 +27,7 @@ const ParagraphWidget = (
               onChange={(key) =>
                 callbackFunction({
                   ...cachedItem,
+                  type: editingType,
                   text: key.target.value
                 })
               } />
@@ -39,6 +40,7 @@ const ParagraphWidget = (
                 value={cachedItem.text}
                 onChange={(key) => callbackFunction({
                   ...cachedItem,
+                  type: editingType,
                   text: key.target.value
                 })}
               ></textarea>
