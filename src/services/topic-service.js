@@ -26,7 +26,7 @@ export const updateTopic = (topicId, topic) => {
     {
       method: 'PUT',
       body: JSON.stringify(topic),
-      header: {'content-type': 'application/json'}
+      headers: {'content-type': 'application/json'}
     }).then(response => response.json())
   )
 }

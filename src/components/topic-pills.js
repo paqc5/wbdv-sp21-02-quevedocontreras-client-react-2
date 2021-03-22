@@ -18,9 +18,8 @@ const TopicPills = (
   const [redirectTopic, setRedirectTopic] = useState(false)
 
   useEffect(() => {
-    if (topicId !== "undefined" && typeof topicId !== "undefined") {
-      findTopicsForLesson(lessonId)
-    } else {
+    findTopicsForLesson(lessonId)
+    if (topicId === "undefined" || typeof topicId === "undefined") {
       setRedirectTopic(true)
     }
   }, [findTopicsForLesson, lessonId, topicId])

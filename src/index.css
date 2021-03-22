@@ -314,22 +314,34 @@ button:hover {
     height: 100%;
 }
 
+.paqc-course-topic-content .list-group-item {
+    border: none;
+    padding: 1rem 1rem;
+}
+
+.paqc-course-topic-content .paqc-widget-heading {
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+}
+.paqc-course-topic-content .paqc-widget-heading h1,
+.paqc-course-topic-content .paqc-widget-heading h2,
+.paqc-course-topic-content .paqc-widget-heading h3,
+.paqc-course-topic-content .paqc-widget-heading h4,
+.paqc-course-topic-content .paqc-widget-heading h5,
+.paqc-course-topic-content .paqc-widget-heading h6 {
+    margin-bottom: 0;
+}
 .paqc-editable-item-container .form-control {
     padding: 0.375rem 0.75rem;
 }
-
 .red {
     background-color: red;
 }
-
 .green {
     background-color: green;
 }
-
 .yellow {
     background-color: yellow;
 }
-
 .pink {
     background-color: pink;
 }

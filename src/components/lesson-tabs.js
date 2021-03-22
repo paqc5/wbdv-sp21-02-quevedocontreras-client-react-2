@@ -20,12 +20,11 @@ const LessonTabs = (
   const [redirectLesson, setRedirectLesson] = useState(false)
 
   useEffect(() => {
-    if(moduleId !== "undefined" && typeof moduleId !== "undefined") {
-      findLessonsForModule(moduleId)
-    } else {
+    findLessonsForModule(moduleId)
+    if(lessonId === "undefined" || typeof lessonId === "undefined") {
       setRedirectLesson(true)
     }
-  }, [findLessonsForModule, moduleId])
+  }, [findLessonsForModule, moduleId, lessonId])
 
   return (
     <ul className="nav nav-tabs">

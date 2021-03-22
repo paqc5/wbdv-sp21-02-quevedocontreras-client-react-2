@@ -5,16 +5,19 @@ import { Provider } from 'react-redux';
 import moduleReducer from '../reducers/modules-reducer';
 import lessonReducer from '../reducers/lessons-reducer';
 import topicReducer from '../reducers/topics-reducer';
+import widgetReducer from '../reducers/widgets-reducer';
 import ModuleList from './module-list';
 import LessonTabs from './lesson-tabs';
 import TopicPills from './topic-pills';
 import courseService from '../services/course-service'
+import WidgetList from './widgets/widget-list';
 
 
 const reducer = combineReducers({
   moduleReducer: moduleReducer,
   lessonReducer: lessonReducer,
-  topicReducer: topicReducer
+  topicReducer: topicReducer,
+  widgetReducer: widgetReducer
 })
 // const store = createStore(moduleReducer)
 const store = createStore(reducer)
@@ -55,9 +58,7 @@ const CourseEditor = (
             <LessonTabs />
             <div className="paqc-course-lesson-content">
               <TopicPills />
-              <div className="paqc-course-topic-content">
-                Some content
-              </div>
+              <WidgetList/>
             </div>
           </div>
         </div>
