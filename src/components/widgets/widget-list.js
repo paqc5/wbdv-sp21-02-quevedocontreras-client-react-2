@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import HeadingWidget from './heading-widget'
 import ParagraphWidget from './paragraph-widget'
 import widgetActions from '../../actions/widget-actions'
+import ListWidget from './list-widget';
+import ImageWidget from './image-widget';
 
 
 const WidgetList = (
@@ -18,11 +20,11 @@ const WidgetList = (
 
   const { topicId } = useParams()
   const [editingWidget, setEditingWidget] = useState({})
+  const [newWidgetType, setNewWidgetType] = useState("")
 
   const handleUpdate = (childData) => {
     setEditingWidget(childData)
   }
-
 
   useEffect(() => {
     if (topicId !== "undefined" || typeof topicId !== undefined) {
@@ -32,12 +34,27 @@ const WidgetList = (
 
   return (
     <div className="paqc-course-topic-content">
-      <ul className="list-group list-group-flush">
-        <button
-          onClick={() => createWidget(topicId)}
-          className="btn btn-light border-1">
-          Add Widget <i className="fas fa-plus-circle fa-lg"></i>
-        </button>
+      <ul className="list-group list-group-flush" id="paqc-widgets-container">
+        <li className="list-group-item">
+          <select 
+            className="form-control mb-2"
+            value={newWidgetType}
+            onChange={(event) =>
+              setNewWidgetType(event.target.value)
+            }
+          >
+            <option value="" disabled>-- Select Widget Type --</option>
+            <option value="HEADING">Heading</option>
+            <option value="PARAGRAPH">Paragraph</option>
+            <option value="LIST">List</option>
+            <option value="IMAGE">Image</option>
+          </select>
+          <button
+            onClick={() => createWidget(topicId, newWidgetType)}
+            className="btn btn-light border-1 w-100">
+            Add Widget <i className="fas fa-plus-circle fa-lg"></i>
+          </button>
+        </li>
         {
           widgets.map(widget =>
             <li key={widget.id} className={`list-group-item ${widget.type === "HEADING" ? 'paqc-widget-heading' : ''}`}>
@@ -63,10 +80,12 @@ const WidgetList = (
                 >
                   <option value="HEADING">Heading</option>
                   <option value="PARAGRAPH">Paragraph</option>
+                  <option value="LIST">List</option>
+                  <option value="IMAGE">Image</option>
                 </select>
               }
               {
-                widget.type === "HEADING" &&
+                ((widget.type === "HEADING" && editingWidget.id !== widget.id) || (editingWidget.id === widget.id && editingWidget.type === "HEADING")) &&
                 <HeadingWidget
                   widget={widget}
                   editing={editingWidget.id === widget.id}
@@ -75,8 +94,26 @@ const WidgetList = (
                 />
               }
               {
-                widget.type === "PARAGRAPH" &&
+                ((widget.type === "PARAGRAPH" && editingWidget.id !== widget.id) || (editingWidget.id === widget.id && editingWidget.type === "PARAGRAPH")) &&
                 <ParagraphWidget
+                  widget={widget}
+                  editing={editingWidget.id === widget.id}
+                  editingType={editingWidget.type}
+                  onChange={handleUpdate}
+                />
+              }
+              {
+                ((widget.type === "LIST" && editingWidget.id !== widget.id) || (editingWidget.id === widget.id && editingWidget.type === "LIST")) &&
+                <ListWidget
+                  widget={widget}
+                  editing={editingWidget.id === widget.id}
+                  editingType={editingWidget.type}
+                  onChange={handleUpdate}
+                />
+              }
+              {
+                ((widget.type === "IMAGE" && editingWidget.id !== widget.id) || (editingWidget.id === widget.id && editingWidget.type === "IMAGE")) &&
+                <ImageWidget
                   widget={widget}
                   editing={editingWidget.id === widget.id}
                   editingType={editingWidget.type}
@@ -142,8 +179,8 @@ const dispatchToPropertyMapper = (dispatch) => {
   return {
     findWidgetsForTopic: (topicId) =>
       widgetActions.findWidgetsForTopic(dispatch, topicId),
-    createWidget: (topicId) =>
-      widgetActions.createWidget(dispatch, topicId),
+    createWidget: (topicId, newWidgetType) =>
+      widgetActions.createWidget(dispatch, topicId, newWidgetType),
     updateWidget: (widgetId, widget) =>
       widgetActions.updateWidget(dispatch, widgetId, widget),
     deleteWidget: (widgetId) =>

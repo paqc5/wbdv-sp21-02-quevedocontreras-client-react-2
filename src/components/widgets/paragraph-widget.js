@@ -19,37 +19,21 @@ const ParagraphWidget = (
     <>
       {editing &&
         <>
-          {editingType === 'HEADING' &&
-            <input
-              className="form-control mb-2"
-              type="text"
-              value={cachedItem.text}
-              onChange={(key) =>
-                callbackFunction({
-                  ...cachedItem,
-                  type: editingType,
-                  text: key.target.value
-                })
-              } />
-          }
-          {editingType === 'PARAGRAPH' &&
-            <>
-              <textarea
-                className="form-control"
-                type="text"
-                value={cachedItem.text}
-                onChange={(key) => callbackFunction({
-                  ...cachedItem,
-                  type: editingType,
-                  text: key.target.value
-                })}
-              ></textarea>
-            </>
-          }
+          <textarea
+            className="form-control mb-2"
+            rows="8"
+            type="text"
+            value={cachedItem.text}
+            onChange={(key) => callbackFunction({
+              ...cachedItem,
+              type: editingType,
+              text: key.target.value
+            })}
+          ></textarea>
         </>
       }
       {!editing &&
-        <p>{widget.text}</p>
+        <p className="mb-0">{widget.text}</p>
       }
     </>
   )

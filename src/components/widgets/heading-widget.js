@@ -20,33 +20,17 @@ const HeadingWidget = (
     <>
       {editing &&
         <>
-          {editingType === 'HEADING' &&
-            <input
-              className="form-control mb-2"
-              type="text"
-              value={cachedItem.text}
-              onChange={(key) =>
-                callbackFunction({
-                  ...cachedItem,
-                  type: editingType,
-                  text: key.target.value,
-                })
-              } />
-          }
-          {editingType === 'PARAGRAPH' &&
-            <>
-              <textarea
-                className="form-control"
-                type="text"
-                value={cachedItem.text}
-                onChange={(key) => callbackFunction({
-                  ...cachedItem,
-                  type: editingType,
-                  text: key.target.value
-                })}
-              ></textarea>
-            </>
-          }
+          <input
+            className="form-control mb-2"
+            type="text"
+            value={cachedItem.text}
+            onChange={(key) =>
+              callbackFunction({
+                ...cachedItem,
+                type: editingType,
+                text: key.target.value,
+              })
+            } />
         </>
       }
       {!editing &&
