@@ -53,6 +53,7 @@ export default class CourseAdder extends React.Component {
                   <span className="paqc-display-lg">Last Modified</span>
                 </Route>
               </th>
+              <th scope="col"></th>
               <th scope="col" className="text-right">
                 <button><i className="fas fa-folder"></i></button>
                 <button><i className="fas fa-sort"></i></button>

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { useParams, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import EditableItem from './editable-item';
-import lessonService from '../services/lesson-service'
+import lessonService from '../../services/lesson-service'
 // import topicService, { findTopicsForLesson } from '../services/topic-service';
 
 

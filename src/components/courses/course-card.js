@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import placeholderImage from '../assets/img/placeholder-600x400.png';
+import placeholderImage from '../../assets/img/placeholder-600x400.png';
 
 const CourseCard = ({course, deleteCourse, updateCourse}) => {
 

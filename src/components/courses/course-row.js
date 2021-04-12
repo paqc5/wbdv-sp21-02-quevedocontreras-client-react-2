@@ -39,6 +39,11 @@ const CourseRow = ({course, deleteCourse, updateCourse}) => {
       <td className="text-center">
         <span className="paqc-display-lg">{course.lastModified}</span>
       </td>
+      <td className="text-center">
+        <Link to={`/courses/${course._id}/quizzes`}>
+          Quizzes
+        </Link>
+      </td>
       <td className="text-right">
         {editing && 
         <>

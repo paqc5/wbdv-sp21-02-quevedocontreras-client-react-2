@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import EditableItem from './editable-item';
-import moduleService from '../services/module-service'
+import moduleService from '../../services/module-service'
 
 const ModuleList = (
   {
