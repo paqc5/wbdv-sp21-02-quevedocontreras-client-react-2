@@ -1,4 +1,5 @@
-const API_URL = "http://localhost:4000/api/quizzes"
+const API_URL = process.env.REACT_APP_QUIZZES_URL
+// const API_URL = "http://localhost:4000/api/quizzes"
 
 const findAllQuizzes = () => {
   return fetch(`${API_URL}`)
