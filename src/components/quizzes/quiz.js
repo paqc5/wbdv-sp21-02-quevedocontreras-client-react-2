@@ -91,7 +91,7 @@ const Quiz = ({
           }
         </ul>
         {cachedGraded &&
-        <p><strong>Score:</strong> {score.toPrecision(2)} out of 100</p>
+        <p><strong>Score:</strong> {score} out of 100</p>
         }
         <div className="text-right pb-5">
           {cachedGraded &&
