@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import quizActions from '../../actions/quiz-actions'
@@ -20,9 +20,9 @@ const QuizzesList = ({
   return (
     <div className="paqc-quiz-list-container">
       <div className="paqc-quiz-list-title row">
-        <a onClick={() => history.goBack()}>
+        <button onClick={() => history.goBack()}>
           <i className="fas fa-chevron-left fa-lg"></i>
-        </a>
+        </button>
         <h4>Quizzes</h4>
       </div>
       <ul className="list-group">

@@ -1,5 +1,6 @@
 const initialState = {
-  quizzes: []
+  quizzes: [],
+  score: 0
 }
 
 const quizReducer = (state = initialState, action) => {

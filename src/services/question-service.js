@@ -6,6 +6,7 @@ const findQuestionsForQuiz = (quizId) => {
     .then(response => response.json())
 }
 
-export default {
+const api = {
   findQuestionsForQuiz
 }
+export default api

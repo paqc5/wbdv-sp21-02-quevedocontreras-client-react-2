@@ -14,6 +14,7 @@ import topicReducer from '../reducers/topics-reducer';
 import widgetReducer from '../reducers/widgets-reducer';
 import quizReducer from '../reducers/quizzes-reducer';
 import questionReducer from '../reducers/questions-reducer';
+import quizAttemptsReducer from '../reducers/quiz-attempts-reducer';
 
 const reducer = combineReducers({
   moduleReducer: moduleReducer,
@@ -21,7 +22,8 @@ const reducer = combineReducers({
   topicReducer: topicReducer,
   widgetReducer: widgetReducer,
   quizReducer: quizReducer,
-  questionReducer: questionReducer
+  questionReducer: questionReducer,
+  quizAttemptsReducer: quizAttemptsReducer
 })
 // const store = createStore(moduleReducer)
 const store = createStore(reducer)

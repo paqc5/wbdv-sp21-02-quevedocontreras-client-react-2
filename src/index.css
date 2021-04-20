@@ -96,6 +96,9 @@ code {
     min-height: 100%;
 }
 
+.container {
+}
+
 .list-group-item {
     padding: .75rem 1rem;
 }
@@ -173,7 +176,7 @@ button:hover {
 }
 
 .paqc-course-manager-container {
-    height: 100%;
+    min-height: 100%;
 }
 
 .paqc-course-table-container .table th,
@@ -244,7 +247,11 @@ button:hover {
 
 .paqc-course-editor-container,
 .paqc-quiz-list-container {
-    height: 100%;
+    min-height: 100%;
+}
+
+.paqc-quiz-list-container {
+    margin-bottom: 50px;
 }
 
 .paqc-course-editor-container .nav-pills .nav-link {
@@ -271,7 +278,7 @@ button:hover {
 }
 
 .paqc-course-editor-title a,
-.paqc-quiz-list-title a {
+.paqc-quiz-list-title a, .paqc-quiz-list-title button {
     padding: 0.1rem 0 0;
     align-self: center;
 }

@@ -36,6 +36,7 @@ const ImageWidget = ({
     <div>
       <div className="text-center">
         <img
+            alt=""
           className="my-2"
           src={cachedItem.src}
           width={cachedItem.width ? percentageWidth + "%" : "100%"}

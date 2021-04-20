@@ -52,7 +52,6 @@ const RadioButton = ({
           <i className="fas fa-times"></i>
         }
       </div><br />
-
     </div>
   )
 }
